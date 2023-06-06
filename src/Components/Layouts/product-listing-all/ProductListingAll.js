@@ -5,6 +5,7 @@ import ProductListingCard from '../../Cards/Product-Listing-Card/ProductListingC
 
 
 function ProductListingAll() {
+    console.log(BookData);
   return (
     <section className="product-listing-all-container">
             <div className="container">

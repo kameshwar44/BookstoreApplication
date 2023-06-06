@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router";
 import HomePage from "./Pages/Homepage/HomePage";
 import BooksPage from "./Pages/Bookspage/BooksPage";
@@ -15,7 +15,18 @@ function App() {
 
   const [cartItems, setCartItems] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
+
+  useEffect(() => {
+    let total = 0;
+    cartItems.forEach((item) => {
+        total = total + parseInt(item.price);
+    })
+
+    setTotalAmount(total);
+},[cartItems])
+
   return (
+    <CartContext.Provider value={{cartItems, totalAmount, setCartItems}}>
     <div>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -27,6 +38,7 @@ function App() {
         <Route path="/login" element={<Login />} />
       </Routes>
     </div>
+    </CartContext.Provider>
   );
 }
 

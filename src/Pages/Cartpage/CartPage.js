@@ -1,6 +1,6 @@
 import React from "react";
-import CartItemsContainer from "../../Components/Layouts/cart-items-container/CartItemsContainer";
 import Navbar from "../../Components/Layouts/navbar/Navbar";
+import CartItemsContainer from './../../Components/Layouts/cart-items-container/CartItemsContainer';
 
 function CartPage() {
   return (

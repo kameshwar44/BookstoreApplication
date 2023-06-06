@@ -2,24 +2,27 @@ import React, { useContext, useEffect, useState } from "react";
 import { BookData } from "../../../UtilsData/BookData";
 import { useNavigate, useParams } from "react-router";
 import "./DetailsSection.css";
+import { CartContext } from "../../../App";
 
 function DetailsSection() {
   const { id } = useParams();
-  const [bookData, setBookData] = useState({});            // Setting BookData To Objects
+  const [bookData, setBookData] = useState({}); // Setting BookData To Objects
+
 
   const navigate = useNavigate();
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   useEffect(() => {
-    let newData = BookData.filter((book) => book.id === parseInt(id));       //filtering Data with Id
+    let newData = BookData.filter((book) => book.id === parseInt(id)); //filtering Data with Id
     console.log(newData[0]);
     setBookData(newData[0]);
   }, [id]);
 
   const handleAddToCart = () => {
     // if(user) {
-    //     //add to cart
-    //     setCartItems([...cartItems, bookData]);
-    //     alert(`The book ${bookData.book_name} is added to the cart`);
+    //add to cart
+    setCartItems([...cartItems, bookData]); // Adding Previous and current BookData To Cart
+    alert(`The book ${bookData.book_name} is added to the cart`);
     // } else {
     //     navigate('/login');
     //     alert("Please Login or Sign up first..");
