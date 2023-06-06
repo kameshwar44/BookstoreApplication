@@ -3,6 +3,7 @@ import Navbar from "../../Components/Layouts/navbar/Navbar";
 import SearchResultCard from "./../../Components/Cards/Search-Result-Card/SearchResultCard";
 import { useLocation } from "react-router";
 import { BookData } from "../../UtilsData/BookData";
+import './searchpage.css';
 
 
 function SearchPage() {
@@ -18,10 +19,11 @@ function SearchPage() {
 
     setSearchResult(searchValue);
   }, [location.state]);
+
   return (
     <section>
-      <Navbar />
-
+        <Navbar/>
+      
       <div className="search-result-container">
         <div className="container">
           <h2>Your Search Result</h2>

@@ -12,32 +12,31 @@ export const UserContext = createContext({});
 export const CartContext = createContext({});
 
 function App() {
-
   const [cartItems, setCartItems] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     let total = 0;
     cartItems.forEach((item) => {
-        total = total + parseInt(item.price);
-    })
+      total = total + parseInt(item.price);
+    });
 
     setTotalAmount(total);
-},[cartItems])
+  }, [cartItems]);
 
   return (
-    <CartContext.Provider value={{cartItems, totalAmount, setCartItems}}>
-    <div>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/books" element={<BooksPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/book-details/:id" element={<BookDetails />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </div>
+    <CartContext.Provider value={{ cartItems, totalAmount, setCartItems }}>
+      <div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/books" element={<BooksPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/book-details/:id" element={<BookDetails />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
     </CartContext.Provider>
   );
 }

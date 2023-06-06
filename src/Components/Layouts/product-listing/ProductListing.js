@@ -6,7 +6,7 @@ import "./ProductListing.css";
 function ProductListing() {
   return (
     <div className="product-listing-container">
-      <h2>
+      <h2 style={{ textAlign: "center" }} >
         Here are some <span className="text-primary">books</span> that you might
         like
       </h2>

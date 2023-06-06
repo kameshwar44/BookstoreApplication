@@ -8,6 +8,7 @@ function SearchInputForm() {
 
   const handleChange = (e) => {
     setSearchField(e.target.value);
+    console.log(e.target.value);
   };
 
   const redirectToSearch = () => {
