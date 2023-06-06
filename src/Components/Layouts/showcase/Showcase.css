@@ -1,0 +1,25 @@
+.showcase-container{
+    height: 50vh;
+    width: 100%;
+    background: red;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay{
+   
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+}
+
+.showcase-content{
+    width: fit-content;
+    z-index: 1;
+}
+
+
+
+

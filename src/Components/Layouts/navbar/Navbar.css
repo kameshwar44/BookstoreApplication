@@ -1,0 +1,53 @@
+.navbar-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  padding: 1rem;
+  background-color: rgb(234, 0, 0);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+ 
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #000000;
+  text-decoration: none;
+  font-family: Chivo Mono;
+  font-weight: 700;
+}
+
+.logo span {
+  font-family: Chivo Mono;
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.Home {
+    display:flex;
+    justify-content: center;
+    
+  }
+
+.cart-link {
+    display:flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    justify-content: flex-end;
+   
+}
+.container a{
+    text-decoration: none;
+    margin-right: 50px;
+    font-size: larger;
+    font-weight: 1000;
+}
