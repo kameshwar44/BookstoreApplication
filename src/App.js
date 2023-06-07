@@ -7,7 +7,7 @@ import SearchPage from "./Pages/Searchpage/SearchPage";
 
 import BookDetails from "./Pages/Bookdetailspage/BookDetails";
 
-export const UserContext = createContext({});
+
 export const CartContext = createContext({});
 
 function App() {

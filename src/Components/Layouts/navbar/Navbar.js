@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.styles.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../../App";
+
 
 function Navbar() {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <section className="navbar-container">
       <Link to="/" className="logo">
@@ -16,7 +20,7 @@ function Navbar() {
           All Books
         </Link>
         <Link to="/cart" className="cart-link">
-          Cart
+          Cart ({cartItems.length})
         </Link>
       </div>
     </section>

@@ -1,30 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BookData } from "../../../UtilsData/BookData";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import "./DetailsSection.css";
 import { CartContext } from "../../../App";
 import swal from 'sweetalert';
 
 function DetailsSection() {
   const { id } = useParams();
-  const [bookData, setBookData] = useState({}); // Setting BookData To Objects
-
+  const [bookData, setBookData] = useState({});
   const { cartItems, setCartItems } = useContext(CartContext);
 
+
   useEffect(() => {
-    let newData = BookData.filter((book) => book.id === parseInt(id)); //filtering Data with Id
+    let newData = BookData.filter((book) => book.id === parseInt(id));
     console.log(newData[0]);
     setBookData(newData[0]);
   }, [id]);
 
   const handleAddToCart = () => {
-    setCartItems([...cartItems, bookData]); // Adding Previous and current BookData To Cart
+    setCartItems([...cartItems, bookData]);
     swal({
       title: "Added To Cart",
       text: `${bookData.book_name} is added to the cart`,
       icon: "success",
       button: "Ok!",
     });
+
+    // Save cart items to local storage
+    localStorage.setItem("cartItems", JSON.stringify([...cartItems, bookData]));
   };
 
   return (
@@ -48,7 +51,7 @@ function DetailsSection() {
 
             <h3>&#8377;{bookData.price}</h3>
 
-            <a onClick={handleAddToCart} className="button-primary">
+            <a href onClick={handleAddToCart} className="button-primary">
               Add To Cart
             </a>
           </div>
