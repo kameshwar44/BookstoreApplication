@@ -16,6 +16,7 @@ function SearchResultCard({ bookData }) {
         <h2>{bookData.book_name}</h2>
         <p>{bookData.author_name}</p>
 
+        {/* Link to navigate to the book details page */}
         <Link to={`/book-details/${bookData.id}`} className="button-primary">
           Product Details
         </Link>

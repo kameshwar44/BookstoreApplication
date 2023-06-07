@@ -15,6 +15,7 @@ function SearchInputForm() {
     if (searchField === "") {
       alert("SearchField is Empty");
     } else {
+      // Navigate to the search page with the search field as state
       navigate("/search", { state: searchField });
     }
   };

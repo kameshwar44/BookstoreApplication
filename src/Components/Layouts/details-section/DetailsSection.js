@@ -3,13 +3,12 @@ import { BookData } from "../../../UtilsData/BookData";
 import { useNavigate, useParams } from "react-router";
 import "./DetailsSection.css";
 import { CartContext } from "../../../App";
+import swal from 'sweetalert';
 
 function DetailsSection() {
   const { id } = useParams();
   const [bookData, setBookData] = useState({}); // Setting BookData To Objects
 
-
-  const navigate = useNavigate();
   const { cartItems, setCartItems } = useContext(CartContext);
 
   useEffect(() => {
@@ -19,14 +18,13 @@ function DetailsSection() {
   }, [id]);
 
   const handleAddToCart = () => {
-    // if(user) {
-    //add to cart
     setCartItems([...cartItems, bookData]); // Adding Previous and current BookData To Cart
-    alert(`The book ${bookData.book_name} is added to the cart`);
-    // } else {
-    //     navigate('/login');
-    //     alert("Please Login or Sign up first..");
-    // }
+    swal({
+      title: "Added To Cart",
+      text: `${bookData.book_name} is added to the cart`,
+      icon: "success",
+      button: "Ok!",
+    });
   };
 
   return (

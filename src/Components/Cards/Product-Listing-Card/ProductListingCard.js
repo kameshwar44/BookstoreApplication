@@ -18,6 +18,7 @@ const ProductListingCard = ({ bookData }) => {
         <p className="pricing">&#8377;{bookData.price}</p>
       </div>
       <div className="card-btn-container">
+        {/* Link to navigate to book details and add to cart */}
         <Link
           to={`/book-details/${bookData.id}`}
           className="product-listing-button"

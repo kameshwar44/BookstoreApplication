@@ -18,12 +18,6 @@ function Navbar() {
         <Link to="/cart" className="cart-link">
           Cart
         </Link>
-        <Link to="/login" className="cart-link">
-          Login
-        </Link>
-        <Link to="/signup" className="cart-link">
-          Signup
-        </Link>
       </div>
     </section>
   );

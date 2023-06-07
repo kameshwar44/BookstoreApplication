@@ -12,7 +12,7 @@ function ProductListing() {
       </h2>
       <div className="container">
         <div className="listing-container">
-          {BookData.slice(0, 4).map((book) => (
+          {BookData.slice(0, 4).map((book) => (                           // Slicing Books upto 4 content
             <ProductListingCard key={book.id} bookData={book} />
           ))}
         </div>

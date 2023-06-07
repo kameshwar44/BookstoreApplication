@@ -5,7 +5,6 @@ import { useLocation } from "react-router";
 import { BookData } from "../../UtilsData/BookData";
 import './searchpage.css';
 
-
 function SearchPage() {
   const location = useLocation();
   const [searchResult, setSearchResult] = useState([]);
@@ -13,6 +12,7 @@ function SearchPage() {
   useEffect(() => {
     let searchValue = [];
 
+    // Filter the BookData based on the search query from the location state
     searchValue = BookData.filter((data) =>
       data.book_name.toLowerCase().includes(location.state.toLowerCase())
     );
@@ -22,18 +22,17 @@ function SearchPage() {
 
   return (
     <section>
-        <Navbar/>
-      
+      <Navbar />
       <div className="search-result-container">
-        <div className="container">
+        <div className="containers">
           <h2>Your Search Result</h2>
 
+          {/* Map through the searchResult array and render SearchResultCard for each result */}
           {searchResult.map((result) => (
             <SearchResultCard key={result.id} bookData={result} />
           ))}
         </div>
       </div>
-
     </section>
   );
 }
